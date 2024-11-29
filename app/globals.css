@@ -294,7 +294,7 @@ button:hover {
 
 /* Skills Section Styles */
 .skills {
-  padding: 10px 10px;
+  padding: 20px;
   background-color: #1e1e2f; /* Dark background for the section */
   text-align: center; /* Center-align the skills heading */
 }
@@ -305,17 +305,22 @@ button:hover {
   width: 100%;
   margin: 0 auto; /* Center the content */
   background-color: #2e2e4e; /* Light background color for the wrapper */
-  padding: 30px;
+  padding: 20px;
   border-radius: 10px; /* Rounded corners for the wrapper */
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Light shadow for the wrapper */
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
 }
 
 /* Skill Item */
 .skill {
   display: flex;
-  justify-content: space-between; /* Place the skill name and bar at the edges */
-  align-items: center;
-  margin-bottom: 20px;
+  align-items: center; /* Align items in a row */
+  justify-content: space-between; /* Space between the name, bar, and logo */
+  position: relative; /* To position the logo properly */
+  gap: 20px; /* Space between name, bar, and logo */
+  flex-wrap: nowrap; /* Prevent wrapping of items */
 }
 
 /* Skill Name */
@@ -323,7 +328,7 @@ button:hover {
   font-size: 1.2rem;
   font-weight: bold;
   color: #f0f0f0; /* Light text color */
-  width: 120px; /* Ensure alignment of skill names */
+  width: 120px; /* Ensures proper alignment of skill names */
   text-align: left;
 }
 
@@ -331,10 +336,10 @@ button:hover {
 .bar {
   background-color: #555; /* Darker bar background */
   height: 6px; /* Reduced bar height */
-  width: 100%;
+  width: 100%; /* Takes the available space between name and logo */
   border-radius: 5px;
   overflow: hidden;
-  margin-left: 20px; /* Space between skill name and bar */
+  position: relative; /* Needed for positioning of the level inside the bar */
 }
 
 /* Progress Level */
@@ -344,6 +349,15 @@ button:hover {
   transition: width 0.3s ease;
 }
 
+/* Skill Logo */
+.skillLogo {
+  height: 40px; /* Increased size of the logo */
+  width: auto; /* Maintain aspect ratio */
+  margin-left: 10px; /* Space between the progress bar and logo */
+  flex-shrink: 0; /* Prevent logo from shrinking */
+  align-self: center; /* Align the logo vertically with the bar */
+}
+
 /* Responsive Adjustments */
 @media (max-width: 768px) {
   .skillName {
@@ -351,7 +365,10 @@ button:hover {
     width: 100px; /* Adjust width for smaller screens */
   }
   .bar {
-    height: 5px; /* Reduce height for smaller screens */
+    height: 5px; /* Further reduce bar height */
+  }
+  .skillLogo {
+    height: 35px; /* Slightly reduce size of logo */
   }
 }
 
@@ -361,7 +378,10 @@ button:hover {
     width: 80px; /* Further adjust width on mobile */
   }
   .bar {
-    height: 4px; /* Further reduce bar height on mobile */
+    height: 4px; /* Further reduce bar height */
+  }
+  .skillLogo {
+    height: 30px; /* Further reduce logo size */
   }
 }
 
